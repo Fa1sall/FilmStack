@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmStack - Film Inventory App</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="icon" href="./images/logo.png" />
+  </head>
+  <body>
+    <header>
+      <%- include('partials/navbar') %>
+      <div class="hero">
+        <h1 class="hero__title">Welcome to FilmStack!</h1>
+        <p class="hero__subtitle">
+          FilmStack lets you add, organize, and track all your films in one
+          place. Edit, update, or delete films anytime with ease.
+        </p>
+        <a class="hero__button" href="/movies" role="button">Browse Films</a>
+      </div>
+    </header>
+  </body>
+</html>

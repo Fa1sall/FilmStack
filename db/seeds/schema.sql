@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS categories(
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    name VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS movies(
+    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    title VARCHAR(250),
+    description TEXT,
+    release_year INT,
+    poster_url TEXT,
+    category_id INT REFERENCES categories(id) ON DELETE SET NULL
+);
+
