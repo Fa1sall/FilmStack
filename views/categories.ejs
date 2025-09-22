@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmStack - Film Inventory App</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="icon" href="/images/logo.png" />
+  </head>
+  <body>
+    <header><%- include('partials/navbar') %></header>
+    <main>
+      <div class="categoriesContainer">
+        <% categories.forEach((category) => { %>
+        <a class="category" href="/categories/<%=category.name.toLowerCase()%>">
+          <img src="<%= category.url %>" alt="<%= category.name %>" />
+          <span><%= category.name %></span>
+        </a>
+        <%})%>
+      </div>
+    </main>
+  </body>
+</html>

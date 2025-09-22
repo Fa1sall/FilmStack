@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      FilmStack - <%= categoryMovies[0] ? categoryMovies[0].genre : "Category"
+      %>
+    </title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="icon" href="/images/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header><%- include('partials/navbar') %></header>
+    <main>
+      <div class="moviesContainer">
+        <% categoryMovies.forEach((movie) => { %>
+        <a class="movie" href="/movies/<%= movie.id %>">
+          <div class="movie__header">
+            <img src="<%= movie.poster_url %>" alt="<%= movie.title %>" />
+          </div>
+          <span class="movie__title"><%= movie.title %></span>
+          <div class="movie__info">
+            <p class="movie__desc">
+              <%= movie.description || "No description available." %>
+            </p>
+            <div class="movie__details">
+              <p><%= movie.release_year %></p>
+              <p><%= movie.genre %></p>
+            </div>
+          </div>
+        </a>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,7 +1,9 @@
 import express from "express";
 import { fileURLToPath } from "node:url";
 import { join, dirname } from "node:path";
-import indexRouter from "./routes/indexRouter.js";
+import indexRouter from "./routes/index.js";
+import categoriesRouter from "./routes/categories.js";
+import moviesRouter from "./routes/movies.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -21,6 +23,8 @@ app.set("view engine", "ejs");
 
 //set up routes
 app.use("/", indexRouter);
+app.use("/categories", categoriesRouter);
+app.use("/movies", moviesRouter);
 
 const PORT = 3000;
 app.listen(PORT, (err) => {

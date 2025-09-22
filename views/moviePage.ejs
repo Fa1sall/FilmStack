@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmStack - <%= movie.title %></title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="icon" href="/images/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header><%- include('partials/navbar') %></header>
+    <main>
+      <div class="movieDetailContainer">
+        <div class="movieDetail__poster">
+          <img src="<%= movie.poster_url %>" alt="<%= movie.title %>" />
+        </div>
+        <div class="movieDetail__info">
+          <h1 class="movie__title"><%= movie.title %></h1>
+          <p class="movie__desc">
+            <%= movie.description || "No description available." %>
+          </p>
+          <div class="movie__details">
+            <p><strong>Release Year:</strong> <%= movie.release_year %></p>
+            <p><strong>Genre:</strong> <%= movie.genre %></p>
+          </div>
+          <div class="movieDetail__actions">
+            <a href="/movies/<%= movie.id %>/edit" class="hero__button">Edit</a>
+            <form
+              action="/movies/<%= movie.id %>?_method=DELETE"
+              method="POST"
+              style="display: inline"
+            >
+              <button type="submit" class="hero__button hero__button--delete">
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
