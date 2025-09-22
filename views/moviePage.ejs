@@ -27,8 +27,8 @@
           <div class="movieDetail__actions">
             <a href="/movies/<%= movie.id %>/edit" class="hero__button">Edit</a>
             <form
-              action="/movies/<%= movie.id %>?_method=DELETE"
-              method="POST"
+              action="/movies/<%= movie.id %>/delete"
+              method="post"
               style="display: inline"
             >
               <button type="submit" class="hero__button hero__button--delete">
@@ -39,5 +39,6 @@
         </div>
       </div>
     </main>
+    <script src="/js/navbar.js"></script>
   </body>
 </html>

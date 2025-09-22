@@ -40,3 +40,35 @@ export async function createMovie(
     category_id,
   ]);
 }
+
+export async function deleteMovieById(movieId) {
+  const query = `DELETE FROM movies where id = $1`;
+  await pool.query(query, [movieId]);
+}
+
+export async function updateMovieById(
+  title,
+  description,
+  release_year,
+  poster_url,
+  category_id,
+  movieId
+) {
+  const query = `
+    UPDATE movies
+    SET title = $1,
+    description = $2,
+    release_year = $3,
+    poster_url = $4,
+    category_id = $5
+    WHERE id = $6;`;
+
+  await pool.query(query, [
+    title,
+    description,
+    release_year,
+    poster_url,
+    category_id,
+    movieId,
+  ]);
+}

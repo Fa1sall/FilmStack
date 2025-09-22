@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FilmStack - Film Inventory App</title>
+    <title>FilmStack - Categories</title>
     <link rel="stylesheet" href="/styles/styles.css" />
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="icon" href="/images/logo.png" />
@@ -11,14 +11,21 @@
   <body>
     <header><%- include('partials/navbar') %></header>
     <main>
+      <h1 class="page-title">Categories</h1>
       <div class="categoriesContainer">
         <% categories.forEach((category) => { %>
-        <a class="category" href="/categories/<%=category.name.toLowerCase()%>">
-          <img src="<%= category.url %>" alt="<%= category.name %>" />
-          <span><%= category.name %></span>
+        <a
+          class="category"
+          href="/categories/<%= category.name.toLowerCase() %>"
+        >
+          <div class="category__img-wrapper">
+            <img src="<%= category.url %>" alt="<%= category.name %>" />
+          </div>
+          <span class="category__name"><%= category.name %></span>
         </a>
-        <%})%>
+        <% }) %>
       </div>
     </main>
+    <script src="/js/navbar.js"></script>
   </body>
 </html>
